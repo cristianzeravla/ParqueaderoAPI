@@ -3,21 +3,35 @@ API con servicios orientados a la administración de un Parqueadero, desarrollad
 
 1. Requisitos.
 Un IDE (Visual Studio recomendado).
+
 .NET7.
+
 Un navegador web.
+
 MySql( MySql Workbrench Recomendado).
+
 Git.
 
+
 2. Clonar el Repositorio.
+
 Abre tu terminal o línea de comandos.
+
 Navega al directorio donde deseas clonar el repositorio. Puedes usar el comando cd (cambiar directorio) para hacerlo. Por ejemplo:
+
 cd rutadeldirectorio
+
 Una vez estés en el directorio correcto, utiliza el comando git clone seguido de la URL del repositorio:
+
 git clone https://github.com/cristianzeravla/ParqueaderoAPI
 
+
 3. Configurar la Base de Datos.
+
 Iniciar MySql Workbrench o cualquier cliente de base de datos MySql.
-Ejecutar el siguiente script Sql para crear la base de datos y sus respectivas tablas.
+
+Ejecutar el siguiente script Sql para crear la base de datos y sus respectivas tablas o se puede ejecutar el .sql que se encuentra en el repositorio, "parqueadero.sql".
+
 
 CREATE DATABASE parqueadero;
 
@@ -60,14 +74,18 @@ CREATE TABLE cierres (
 );
 
 4. Actualizar la cadena de conexión dentro del proyecto:
+
 Abre el archivo appsettings.json del proyecto y agrega estas líneas de código remplazando los datos por tu información de base de datos.
+
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost;Database=parqueadero;User=(tu-usuario);Password=(tu-contraseña);"
   }
 }
 
+
 Al final debe quedar algo asi:
+
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost;Database=parqueadero;User=(tu-usuario);Password=(tu-contraseña);"
@@ -82,13 +100,19 @@ Al final debe quedar algo asi:
   "AllowedHosts": "*"
 }
 
+
 5. Restaurar los paquetes NuGet.
+
 Abre una terminal en el directorio del proyecto (donde está el archivo .csproj).
 
+
 Ejecuta el siguiente comando para restaurar los paquetes NuGet:
+
 dotnet restore
 
 6. Ejecutar el proyecto.
+
 Se puede ejecutar el proyecto en la parte superior del IDE, en la flecha verde o presionando F5.
+
 
 Después de estos pasos se abrirá la API en el navegador y se podrá probar los distintos servicios de la API del parqueadero.

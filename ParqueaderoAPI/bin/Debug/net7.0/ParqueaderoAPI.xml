@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParqueaderoAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ParqueaderoAPI.Controllers.CierreController.CreateCierre(ParqueaderoAPI.DTOs.CierreDTO)">
+            <summary>
+            Crea un nuevo cierre del parqueadero.
+            </summary>
+            <param name="cierreDto">Datos del cierre del parqueadero.
+            <br/>Se requiere el idInicio, el total de facturas y la fecha de cierre (Si no se ingresa, se tomará la fecha actual).</param>
+            <returns>El ID del cierre creado.</returns>
+            <response code="200">Devuelve el ID del cierre creado.</response>
+            <response code="400">Si el objeto cierreDto es nulo.</response>
+            <response code="404">Si el idInicio no existe.</response>
+            <response code="500">Si hay un error interno del servidor.</response>
+        </member>
+        <member name="M:ParqueaderoAPI.Controllers.FacturaController.CreateFactura(ParqueaderoAPI.DTOs.FacturaDTO)">
+            <summary>
+            Crea una nueva factura para un ingreso de vehículo.
+            </summary>
+            <param name="facturaDto">Datos de la factura del vehículo.
+            <br/>Se requiere el idIngreso, el valor de la factura y la fecha de la factura (Si no se ingresa, se tomará la fecha actual).</param>
+            <returns>El ID de la factura creada.</returns>
+            <response code="200">Devuelve el ID de la factura creada.</response>
+            <response code="400">Si el objeto facturaDto es nulo.</response>
+            <response code="404">Si el idIngreso no existe.</response>
+            <response code="500">Si hay un error interno del servidor.</response>
+        </member>
+        <member name="M:ParqueaderoAPI.Controllers.IngresoController.CreateIngreso(ParqueaderoAPI.DTOs.IngresoDTO)">
+            <summary>
+            Crea un nuevo ingreso de vehículo.
+            </summary>
+            <param name="ingresoDto">Datos del ingreso del vehículo.
+            <br/>Se requiere el idInicio, la placa (5 caracteres) y la fecha de ingreso (Si no se ingresa, se tomara la fecha actual).</param>
+            <returns>El ID del ingreso creado.</returns>
+            <response code="200">Devuelve el ID del ingreso creado.</response>
+            <response code="400">Si el objeto ingresoDto es nulo o si la placa no tiene 5 caracteres.</response>
+            <response code="404">Si el idInicio no existe.</response>
+            <response code="500">Si hay un error interno del servidor.</response>
+        </member>
+        <member name="M:ParqueaderoAPI.Controllers.InicioController.CreateInicio(ParqueaderoAPI.DTOs.InicioDTO)">
+            <summary>
+            Crea un nuevo inicio del parqueadero.
+            </summary>
+            <param name="inicioDto">Datos del inicio del parqueadero.
+            <br/>Se requiere la fecha de inicio (Si no se ingresa, se tomará la fecha actual).</param>
+            <returns>El ID del inicio creado.</returns>
+            <response code="200">Devuelve el ID del inicio creado.</response>
+            <response code="400">Si el objeto inicioDto es nulo.</response>
+            <response code="500">Si hay un error interno del servidor.</response>
+        </member>
+        <member name="M:ParqueaderoAPI.Controllers.SalidaController.CreateSalida(ParqueaderoAPI.DTOs.SalidaDTO)">
+            <summary>
+            Crea una nueva salida para un vehículo.
+            </summary>
+            <param name="salidaDto">Datos de la salida del vehículo.
+            <br/>Se requiere el idFactura y la fecha de salida (Si no se ingresa, se tomará la fecha actual).</param>
+            <returns>El ID de la salida creada.</returns>
+            <response code="200">Devuelve el ID de la salida creada.</response>
+            <response code="400">Si el objeto salidaDto es nulo.</response>
+            <response code="404">Si el idFactura no existe.</response>
+            <response code="500">Si hay un error interno del servidor.</response>
+        </member>
+        <member name="T:ParqueaderoAPI.DTOs.CierreDTO">
+            <summary>
+            Datos del cierre del parqueadero.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.CierreDTO.IdInicio">
+            <summary>
+            ID del inicio del parqueadero.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.CierreDTO.TotalFacturas">
+            <summary>
+            Total de facturas del cierre.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.CierreDTO.FechaCierre">
+            <summary>
+            Fecha de cierre del parqueadero (opcional).
+            </summary>
+        </member>
+        <member name="T:ParqueaderoAPI.DTOs.FacturaDTO">
+            <summary>
+            Datos de la factura del vehículo.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.FacturaDTO.IdIngreso">
+            <summary>
+            ID del ingreso del vehículo.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.FacturaDTO.ValorFactura">
+            <summary>
+            Valor de la factura.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.FacturaDTO.FechaFactura">
+            <summary>
+            Fecha de la factura (opcional).
+            </summary>
+        </member>
+        <member name="T:ParqueaderoAPI.DTOs.IngresoDTO">
+            <summary>
+            Datos del ingreso del vehículo.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.IngresoDTO.IdInicio">
+            <summary>
+            ID del inicio del parqueadero.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.IngresoDTO.Placa">
+            <summary>
+            Placa del vehículo (5 caracteres).
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.IngresoDTO.FechaIngreso">
+            <summary>
+            Fecha de ingreso del vehículo (opcional).
+            </summary>
+        </member>
+        <member name="T:ParqueaderoAPI.DTOs.InicioDTO">
+            <summary>
+            Datos del inicio del parqueadero.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.InicioDTO.FechaInicio">
+            <summary>
+            Fecha de inicio del parqueadero (opcional).
+            </summary>
+        </member>
+        <member name="T:ParqueaderoAPI.DTOs.SalidaDTO">
+            <summary>
+            Datos de la salida del vehículo.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.SalidaDTO.IdFactura">
+            <summary>
+            ID de la factura del vehículo.
+            </summary>
+        </member>
+        <member name="P:ParqueaderoAPI.DTOs.SalidaDTO.FechaSalida">
+            <summary>
+            Fecha de salida del vehículo (opcional).
+            </summary>
+        </member>
+    </members>
+</doc>
